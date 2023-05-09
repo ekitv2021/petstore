@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <head>
+        <script>
+            function getData(){
+                let path = "http://localhost:8080/products"
+                fetch (path)
+                    .then(x => x.json())
+                    .then(y => document.getElementById("demo").innerHTML = JSON.stringify(y));
+            }
+        </script>
+    </head>
+</head>
+<body>
+    <p id="demo">Fetch a file to change this text.</p>
+    <button onclick="getData()">Click ME</button>
+</body>
+</html>

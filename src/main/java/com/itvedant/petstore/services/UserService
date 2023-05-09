@@ -1,0 +1,43 @@
+package com.itvedant.petstore.services;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.atomic.AtomicInteger;
+
+import org.springframework.stereotype.Service;
+
+import com.itvedant.petstore.dtos.ChangePasswordDto;
+import com.itvedant.petstore.dtos.LoginDto;
+import com.itvedant.petstore.dtos.RegisterUserDto;
+import com.itvedant.petstore.dtos.UpdateProfileDto;
+import com.itvedant.petstore.entities.User;
+
+@Service
+public class UserService {
+    private Map<Integer, User> users = new HashMap<>();
+    private AtomicInteger counter = new AtomicInteger();
+
+    public User register(RegisterUserDto data){
+        User user = new User();
+        user.setId(counter.incrementAndGet());
+        user.setFirstName(data.getFirstName());
+        user.setLastName(data.getLastName());
+        user.setEmail(data.getEmail());
+        user.setPassword(data.getPassword());
+        user.setMobile(data.getMobile());
+        users.put(user.getId(), user);
+        return user;
+    }
+
+    public User login(LoginDto data){
+        return null;
+    }
+
+    public User changePassword(ChangePasswordDto data){
+        return null;
+    }
+
+    public User updateProfile(UpdateProfileDto data){
+        return null;
+    }
+}
